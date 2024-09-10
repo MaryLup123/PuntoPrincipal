@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Editar Cliente</h2>
+    <div class="card card-body">
+        <form method="POST" action="{% url 'EditCliente' cliente_id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.primer_nombre.label_tag }}
+                {{ form.primer_nombre|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.segundo_nombre.label_tag }}
+                {{ form.segundo_nombre|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.tercer_nombre.label_tag }}
+                {{ form.tercer_nombre|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.primer_apellido.label_tag }}
+                {{ form.primer_apellido|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.segundo_apellido.label_tag }}
+                {{ form.segundo_apellido|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.direccion.label_tag }}
+                {{ form.direccion|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.telefono.label_tag }}
+                {{ form.telefono|add_class:"form-control" }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email|add_class:"form-control" }}
+            </div>
+            <div class="form-group text-center mt-4">
+                <button type="submit" class="btn btn-success">Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
